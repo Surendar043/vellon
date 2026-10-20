@@ -1,0 +1,13 @@
+node_modules
+dist
+**/dist/**
+coverage
+.vite
+*.local
+*.log
+npm-debug.log*
+.DS_Store
+.eslintcache
+.idea
+.vscode/*
+!.vscode/extensions.json

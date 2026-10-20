@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Vellum — design tokens
+   --------------------------------------------------------------------------
+   Theming uses `light-dark()` with a plain-value fallback declared first, so
+   browsers without support keep the light palette. The `data-theme`
+   attribute on <html> switches `color-scheme`, which is what `light-dark()`
+   follows.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---- Type ---- */
+  --font-sans:
+    'Inter', 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue',
+    Arial, sans-serif;
+  --font-mono:
+    'JetBrains Mono', 'Cascadia Mono', 'SF Mono', 'Fira Code', Consolas, 'Liberation Mono',
+    monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.35rem + 2.2vw, 2.75rem);
+  --text-4xl: clamp(2.25rem, 1.5rem + 3.4vw, 4rem);
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.16em;
+
+  /* ---- Space ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ---- Radius ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
+  --dur-fast: 130ms;
+  --dur-base: 240ms;
+  --dur-slow: 520ms;
+
+  /* ---- Layout ---- */
+  --container: 1160px;
+  --container-narrow: 820px;
+  --nav-height: 68px;
+  --section-pad: clamp(4.5rem, 2.5rem + 6vw, 8rem);
+
+  /* ---- Surfaces ---- */
+  --bg: #f6f6fb;
+  --bg: light-dark(#f6f6fb, #07070d);
+  --bg-elevated: #ffffff;
+  --bg-elevated: light-dark(#ffffff, #0e0f18);
+  --bg-sunken: #eeeef6;
+  --bg-sunken: light-dark(#eeeef6, #04040a);
+
+  --surface: rgba(14, 16, 40, 0.032);
+  --surface: light-dark(rgba(14, 16, 40, 0.032), rgba(255, 255, 255, 0.035));
+  --surface-hover: rgba(14, 16, 40, 0.06);
+  --surface-hover: light-dark(rgba(14, 16, 40, 0.06), rgba(255, 255, 255, 0.065));
+  --surface-active: rgba(14, 16, 40, 0.095);
+  --surface-active: light-dark(rgba(14, 16, 40, 0.095), rgba(255, 255, 255, 0.095));
+
+  --border: rgba(14, 16, 40, 0.11);
+  --border: light-dark(rgba(14, 16, 40, 0.11), rgba(255, 255, 255, 0.085));
+  --border-strong: rgba(14, 16, 40, 0.2);
+  --border-strong: light-dark(rgba(14, 16, 40, 0.2), rgba(255, 255, 255, 0.16));
+
+  /* ---- Text ---- */
+  --text: #101119;
+  --text: light-dark(#101119, #eeeef6);
+  --text-muted: #52586f;
+  --text-muted: light-dark(#52586f, #9aa0b8);
+  --text-dim: #787f96;
+  --text-dim: light-dark(#787f96, #6b7189);
+  --text-inverse: #ffffff;
+
+  /* ---- Brand ---- */
+  --accent: #6438f0;
+  --accent: light-dark(#6438f0, #a78bfa);
+  --accent-strong: #5327da;
+  --accent-strong: light-dark(#5327da, #c4b5fd);
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(100, 56, 240, 0.12);
+  --accent-soft: light-dark(rgba(100, 56, 240, 0.12), rgba(167, 139, 250, 0.15));
+  --accent-ring: rgba(100, 56, 240, 0.4);
+  --accent-ring: light-dark(rgba(100, 56, 240, 0.4), rgba(167, 139, 250, 0.45));
+
+  --accent-2: #0e8fa8;
+  --accent-2: light-dark(#0e8fa8, #22d3ee);
+  --accent-2-soft: rgba(14, 143, 168, 0.12);
+  --accent-2-soft: light-dark(rgba(14, 143, 168, 0.12), rgba(34, 211, 238, 0.13));
+
+  --success: #0f8a5f;
+  --success: light-dark(#0f8a5f, #34d399);
+  --warning: #b45309;
+  --warning: light-dark(#b45309, #fbbf24);
+  --danger: #d92d4b;
+  --danger: light-dark(#d92d4b, #fb7185);
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 1px 2px rgba(10, 12, 30, 0.06);
+  --shadow-sm: light-dark(0 1px 2px rgba(10, 12, 30, 0.06), 0 1px 2px rgba(0, 0, 0, 0.45));
+  --shadow-md: 0 10px 30px -12px rgba(10, 12, 30, 0.16);
+  --shadow-md: light-dark(
+    0 10px 30px -12px rgba(10, 12, 30, 0.16),
+    0 10px 30px -10px rgba(0, 0, 0, 0.6)
+  );
+  --shadow-lg: 0 30px 70px -24px rgba(10, 12, 30, 0.26);
+  --shadow-lg: light-dark(
+    0 30px 70px -24px rgba(10, 12, 30, 0.26),
+    0 30px 70px -18px rgba(0, 0, 0, 0.78)
+  );
+  --shadow-glow: 0 0 0 1px rgba(100, 56, 240, 0.28), 0 22px 60px -20px rgba(100, 56, 240, 0.4);
+  --shadow-glow: light-dark(
+    0 0 0 1px rgba(100, 56, 240, 0.24),
+    0 22px 60px -20px rgba(100, 56, 240, 0.42)
+  );
+
+  /* ---- Hero backdrop ---- */
+  --mesh-1: rgba(100, 56, 240, 0.26);
+  --mesh-1: light-dark(rgba(100, 56, 240, 0.18), rgba(100, 56, 240, 0.3));
+  --mesh-2: rgba(14, 143, 168, 0.2);
+  --mesh-2: light-dark(rgba(14, 143, 168, 0.14), rgba(34, 211, 238, 0.17));
+  --mesh-3: rgba(217, 70, 239, 0.16);
+  --mesh-3: light-dark(rgba(217, 70, 239, 0.1), rgba(217, 70, 239, 0.16));
+  --grid-line: rgba(14, 16, 40, 0.05);
+  --grid-line: light-dark(rgba(14, 16, 40, 0.05), rgba(255, 255, 255, 0.045));
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}

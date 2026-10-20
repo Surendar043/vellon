@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07070d" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f7fb" media="(prefers-color-scheme: light)" />
+
+    <title>Vellum — design tokens and colour contrast for product teams</title>
+    <meta
+      name="description"
+      content="Vellum turns a single brand colour into a tested design system: tonal palettes, WCAG contrast checks and ready-to-ship CSS custom properties."
+    />
+    <meta name="author" content="Vellum" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Vellum — design tokens and colour contrast for product teams"
+    />
+    <meta
+      property="og:description"
+      content="One brand colour in, a tested design system out. Tonal palettes, WCAG contrast checks and CSS custom properties you can ship."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!--
+      Applies the stored theme before the first paint.
+
+      React cannot do this: it mounts after the browser has already painted the
+      empty page, so the colours would visibly flash. This is deliberately a
+      tiny, hand-written script rather than something from the app bundle.
+    -->
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('vellum:theme')
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (error) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <noscript>
+      <div class="noscript">
+        <h1>Vellum — design tokens and colour contrast for product teams</h1>
+        <p>
+          Vellum turns a single brand colour into a tested design system: tonal palettes, WCAG
+          contrast checks, and CSS custom properties you can ship straight to production.
+        </p>
+        <p>
+          This page needs JavaScript for the interactive colour playground. For a written summary,
+          email <a href="mailto:hello@example.com">hello@example.com</a>.
+        </p>
+      </div>
+    </noscript>
+
+    <!--
+      The vanilla layer. A classic script, deliberately outside the React
+      bundle: it registers the <fd-counter> custom element that animates the
+      statistics band, and it has to be able to run before React mounts.
+    -->
+    <script src="/vanilla.js" defer></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
